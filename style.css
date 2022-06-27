@@ -1,0 +1,145 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500|Roboto+Mono:500);
+
+/* Variables */
+:root {
+    --primary-color: #1f1f1f;
+    --secondary-color: #D8D8D8;
+    --ternary-color: #3ea1db;
+    --border-color: #3b3b3b;
+    --grid-size: 70rem;
+    --tools-container-width: 20rem;
+    --gradient-bg-color: linear-gradient( 109.6deg,  #3ea1db 11.2%, #5d34ec 100.2% );
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Changing default font size */
+html {
+    font-size: 62.5%;
+    font-family: "Roboto", sans-serif;
+    color: #fcfcfc;
+}
+
+/* Body */
+body {
+    background-image: var(--gradient-bg-color);
+}
+
+/* Sketch pad container */
+.sketch-pad {
+    max-width: 1080px;
+    margin: 2rem auto;
+    background-color: var(--primary-color);
+    padding: 1.5rem 0 2rem;
+    border: 1rem solid var(--border-color);
+    border-radius: 5rem;
+}
+
+/* Sketch pad title */
+.sketch-pad .title {
+    text-align: center;
+    font-size: 5rem;
+    font-weight: lighter;
+    padding-bottom: 1.5rem;
+    border-bottom: .65rem solid var(--border-color);
+}
+
+/* Tools and grid container */
+.sketch-pad .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+}
+
+/* Grid */
+.sketch-pad .container .grid {
+    width: var(--grid-size);
+    height: var(--grid-size);
+    background-color: var(--secondary-color);
+    border: .5rem solid var(--border-color);
+}
+
+/* Tools */
+.sketch-pad .container .tools {
+    width: var(--tools-container-width);
+    height: var(--grid-size);
+    background-color: var(--border-color);
+    /* border: .3rem solid var(--secondary-color); */
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* Tools title */
+.sketch-pad .container .tools h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 2rem 0;
+    border-bottom: .5rem solid var(--primary-color);
+    text-align: center;
+}
+
+/* Tools items */
+.sketch-pad .container .tools-items {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    font-size: 1.7rem;
+}
+
+/* Tools items children */
+.sketch-pad .container .tools-items > *:not(:last-child) {
+    border-radius: 7px;
+    padding: .7em;
+    margin: 0 .7rem;
+    text-align: center;
+    background-color: var(--primary-color);
+}
+
+
+/* Selecting a Tools items child (just for hover color demo) */
+.sketch-pad .container .tools-items .eraser {
+    background-color: var(--ternary-color);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.sketch-pad .container .tools-items > .range-slider {
+    accent-color: var(--ternary-color);
+}
+
+/* Color mode */
+.sketch-pad .tools-items .color-mode {
+    display:  flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+
+
+
+
+
+
+/* Range slider */
+.sketch-pad .tools-items .range-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 2.3rem;
+}
+
+.sketch-pad .tools-items .range-slider #slider {
+    align-self: stretch;
+    margin: 0 .7rem;
+}
