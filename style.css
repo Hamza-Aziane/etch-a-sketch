@@ -61,7 +61,7 @@ body {
 .sketch-pad .container .grid {
     width: var(--grid-size);
     height: var(--grid-size);
-    background-color: var(--secondary-color);
+    background-color: var(--border-color);
     border: .5rem solid var(--border-color);
 }
 
