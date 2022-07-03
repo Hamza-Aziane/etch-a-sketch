@@ -52,3 +52,26 @@ function generateGridLayout(gridDimension) {
     // Append the rows list to the grid
     grid.appendChild(rows);
 }
+
+generateGridLayout(rangeSlider.value);
+
+function updateGridSize() {
+    // Remove the old rows
+    const gridRows = document.querySelector('.rows');
+    gridRows.remove();
+    // Get the range slider new value
+    let value = rangeSlider.value;
+    // Generate the grid's layout with the new value
+    generateGridLayout(value);
+}
+
+function updateSliderLabel() {
+    // Get the new range slider value
+    let value = rangeSlider.value;
+    // Change the slider label text content
+    sliderLabel.textContent = `${value} x ${value}`;
+}
+
+// Add event listeners to the range slider
+rangeSlider.addEventListener('change', updateGridSize);
+rangeSlider.addEventListener('mousemove', updateSliderLabel);
