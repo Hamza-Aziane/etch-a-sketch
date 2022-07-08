@@ -120,8 +120,8 @@ function getRandomColor() {
 }
 
 function rainbowMode() {
-    // Set the pen color to a random color
-    penColor = getRandomColor();
+    // Set the pen color to a random color when the mouse start moving over the grid
+    grid.addEventListener('mousemove', () => penColor = getRandomColor());
 }
 // Add event listener to the rainbow mode button
 rainbowModeBtn.addEventListener('click', rainbowMode);
