@@ -13,6 +13,9 @@ let gridDimension = parseInt(rangeSlider.value);
 let penColor = colorPicker.value;
 const gridSize = parseInt(getComputedStyle(grid).width);
 
+// Colors
+let gridBgColor = '#D8D8D8';
+
 // Grid layout generator function
 function generateGridLayout(gridDimension) {
     // Calculate the square size based on the grid size
@@ -42,7 +45,7 @@ function generateGridLayout(gridDimension) {
             // Style the square
             square.style.width = squareSize + 'px';
             square.style.height = '100%';
-            square.style.background = '#D8D8D8';
+            square.style.background = gridBgColor;
             // Append the square to the row
             row.appendChild(square);
         }
@@ -80,10 +83,17 @@ function clearGrid() {
     const squares = document.querySelectorAll('.square');
     // Loop over them and change each one's background to the default color
     squares.forEach(square => {
-        if (square.style.background === '#D8D8D8')
+        if (square.style.background === gridBgColor)
             return
-        square.style.background = '#D8D8D8';
+        square.style.background = gridBgColor;
     })
 }
 // Add event listener to the clear button
 clearBtn.addEventListener('click', clearGrid);
+
+function eraser() {
+    // Set the pen color to the grid bg color
+    penColor = gridBgColor;
+}
+// Add event listener to the eraser button
+eraserBtn.addEventListener('click', eraser);
