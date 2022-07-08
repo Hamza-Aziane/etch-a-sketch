@@ -46,6 +46,8 @@ function generateGridLayout(gridDimension) {
             square.style.width = squareSize + 'px';
             square.style.height = '100%';
             square.style.background = gridBgColor;
+            // Add mouse over event listener
+            square.addEventListener('mouseover', e => e.target.style.background = penColor);
             // Append the square to the row
             row.appendChild(square);
         }
