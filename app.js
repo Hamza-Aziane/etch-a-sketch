@@ -4,7 +4,7 @@ const sliderLabel = document.querySelector(".range-slider label");
 const grid = document.querySelector('.grid');
 const clearBtn = document.querySelector(".clear");
 const eraserBtn = document.querySelector(".eraser");
-const ranModeBtn = document.querySelector(".rainbow-mode");
+const rainbowModeBtn = document.querySelector(".rainbow-mode");
 const colorModeBtn = document.querySelector(".color-mode");
 const colorPicker = document.querySelector("input#color-picker");
 
@@ -97,3 +97,10 @@ function eraser() {
 }
 // Add event listener to the eraser button
 eraserBtn.addEventListener('click', eraser);
+
+function colorMode() {
+    // Set the pen color to the color picker color
+    penColor = document.querySelector("input#color-picker").value;
+}
+// Add event listener to the color mode button
+colorModeBtn.addEventListener('click', colorMode);
