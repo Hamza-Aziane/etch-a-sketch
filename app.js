@@ -104,3 +104,21 @@ function colorMode() {
 }
 // Add event listener to the color mode button
 colorModeBtn.addEventListener('click', colorMode);
+
+function getRandomColor() {
+    // Define the max hex value
+    const maxHex = 0xFFFFFF;
+    // Generate a random hex number
+    let randNum = Math.floor(Math.random() * maxHex).toString(16);
+    // Pad zeroes to the start in case the color's length is less than 6
+    let randColor = randNum.padStart(6, 0);
+    // Return the random color
+    return `#${randColor.toUpperCase()}`;
+}
+
+function rainbowMode() {
+    // Set the pen color to a random color
+    penColor = getRandomColor();
+}
+// Add event listener to the rainbow mode button
+rainbowModeBtn.addEventListener('click', rainbowMode);
