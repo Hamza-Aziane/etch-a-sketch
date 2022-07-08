@@ -71,7 +71,19 @@ function updateSliderLabel() {
     // Change the slider label text content
     sliderLabel.textContent = `${value} x ${value}`;
 }
-
 // Add event listeners to the range slider
 rangeSlider.addEventListener('change', updateGridSize);
 rangeSlider.addEventListener('mousemove', updateSliderLabel);
+
+function clearGrid() {
+    // Select all the squares inside the grid
+    const squares = document.querySelectorAll('.square');
+    // Loop over them and change each one's background to the default color
+    squares.forEach(square => {
+        if (square.style.background === '#D8D8D8')
+            return
+        square.style.background = '#D8D8D8';
+    })
+}
+// Add event listener to the clear button
+clearBtn.addEventListener('click', clearGrid);
