@@ -76,6 +76,7 @@ function updateSliderLabel() {
 }
 // Add event listeners to the range slider
 rangeSlider.addEventListener('change', updateGridSize);
+rangeSlider.addEventListener('change', updateSliderLabel);
 rangeSlider.addEventListener('mousemove', updateSliderLabel);
 
 function clearGrid() {
