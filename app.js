@@ -141,3 +141,6 @@ function deselectAllBtns() {
 const btnSelected = btn => btn.classList.add('btn-selected');
 
 const removeGridEventListener = () => grid.removeEventListener('mousemove', setRandomColor);
+
+// Default selected button
+btnSelected(colorModeBtn);
