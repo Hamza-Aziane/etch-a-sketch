@@ -95,6 +95,8 @@ function clearGrid() {
 clearBtn.addEventListener('click', clearGrid);
 
 function eraser() {
+    // Remove the rainbow mode event listener from the grid
+    grid.removeEventListener('mousemove', setRandomColor);
     // Set the pen color to the grid bg color
     penColor = gridBgColor;
 }
@@ -102,6 +104,8 @@ function eraser() {
 eraserBtn.addEventListener('click', eraser);
 
 function colorMode() {
+    // Remove the rainbow mode event listener from the grid
+    grid.removeEventListener('mousemove', setRandomColor);
     // Set the pen color to the color picker color
     penColor = document.querySelector("input#color-picker").value;
 }
@@ -119,9 +123,10 @@ function getRandomColor() {
     return `#${randColor.toUpperCase()}`;
 }
 
+// Set the pen color to a random color when the mouse start moving over the grid
+let setRandomColor = () => penColor = getRandomColor();
 function rainbowMode() {
-    // Set the pen color to a random color when the mouse start moving over the grid
-    grid.addEventListener('mousemove', () => penColor = getRandomColor());
+    grid.addEventListener('mousemove', setRandomColor);
 }
 // Add event listener to the rainbow mode button
 rainbowModeBtn.addEventListener('click', rainbowMode);
