@@ -71,46 +71,47 @@ function updateGridSize() {
 }
 
 function updateSliderLabel() {
-    // Get the new range slider value
     let value = rangeSlider.value;
-    // Change the slider label text content
     sliderLabel.textContent = `${value} x ${value}`;
 }
-// Add event listeners to the range slider
 rangeSlider.addEventListener('change', updateGridSize);
 rangeSlider.addEventListener('change', updateSliderLabel);
 rangeSlider.addEventListener('mousemove', updateSliderLabel);
 
 function clearGrid() {
-    // Select all the squares inside the grid
     const squares = document.querySelectorAll('.square');
-    // Loop over them and change each one's background to the default color
     squares.forEach(square => {
         if (square.style.background === gridBgColor)
             return
         square.style.background = gridBgColor;
     })
 }
-// Add event listener to the clear button
 clearBtn.addEventListener('click', clearGrid);
 
 function eraser() {
-    // Remove the rainbow mode event listener from the grid
-    grid.removeEventListener('mousemove', setRandomColor);
-    // Set the pen color to the grid bg color
+    removeGridEventListener();
     penColor = gridBgColor;
+    deselectAllBtns();
+    btnSelected(eraserBtn);
 }
-// Add event listener to the eraser button
 eraserBtn.addEventListener('click', eraser);
 
 function colorMode() {
-    // Remove the rainbow mode event listener from the grid
-    grid.removeEventListener('mousemove', setRandomColor);
-    // Call the setPenToColorPicker()
+    removeGridEventListener();
     setPenToColorPicker();
+    deselectAllBtns();
+    btnSelected(colorModeBtn);
 }
-// Add event listener to the color mode button
 colorModeBtn.addEventListener('click', colorMode);
+
+function setPenToColorPicker() {
+    penColor = document.querySelector("input#color-picker").value;
+    penMode = 'color';
+    removeGridEventListener();
+    deselectAllBtns();
+    btnSelected(colorModeBtn);
+}
+colorPicker.addEventListener('change', setPenToColorPicker);
 
 function getRandomColor() {
     // Define the max hex value
@@ -127,14 +128,16 @@ function getRandomColor() {
 let setRandomColor = () => penColor = getRandomColor();
 function rainbowMode() {
     grid.addEventListener('mousemove', setRandomColor);
+    deselectAllBtns();
+    btnSelected(rainbowModeBtn);
 }
-// Add event listener to the rainbow mode button
 rainbowModeBtn.addEventListener('click', rainbowMode);
 
-function setPenToColorPicker() {
-    // Set the pen color to the color picker color
-    penColor = document.querySelector("input#color-picker").value;
-    penMode = 'color';
+function deselectAllBtns() {
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => btn.classList.remove('btn-selected'));
 }
-// Add event listener to the color picker
-colorPicker.addEventListener('change', setPenToColorPicker);
+
+const btnSelected = btn => btn.classList.add('btn-selected');
+
+const removeGridEventListener = () => grid.removeEventListener('mousemove', setRandomColor);

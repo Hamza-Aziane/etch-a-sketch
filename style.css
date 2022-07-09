@@ -96,8 +96,8 @@ body {
     font-size: 1.7rem;
 }
 
-/* Tools items children */
-.sketch-pad .container .tools-items .btn {
+/* Button default style */
+.btn {
     border-radius: 7px;
     padding: .7em;
     margin: 0 .7rem;
@@ -105,16 +105,17 @@ body {
     background-color: var(--primary-color);
 }
 
-
-/* Selecting a Tools items child (just for hover color demo) */
-.sketch-pad .container .tools-items .eraser {
+/* Toggle class on btn click => js */
+.btn-selected {
     background-color: var(--ternary-color);
     color: var(--primary-color);
     font-weight: 500;
 }
 
-.sketch-pad .container .tools-items > .range-slider {
-    accent-color: var(--ternary-color);
+/* On button hover */
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.03);
 }
 
 /* Color mode */
@@ -124,13 +125,11 @@ body {
     align-items: center;
 }
 
-
-
-
-
-
-
 /* Range slider */
+.sketch-pad .container .tools-items > .range-slider {
+    accent-color: var(--ternary-color);
+}
+
 .sketch-pad .tools-items .range-slider {
     display: flex;
     flex-direction: column;
