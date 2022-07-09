@@ -97,7 +97,7 @@ body {
 }
 
 /* Tools items children */
-.sketch-pad .container .tools-items > *:not(:last-child) {
+.sketch-pad .container .tools-items .btn {
     border-radius: 7px;
     padding: .7em;
     margin: 0 .7rem;
@@ -118,7 +118,7 @@ body {
 }
 
 /* Color mode */
-.sketch-pad .tools-items .color-mode {
+.sketch-pad .tools-items .color-container {
     display:  flex;
     gap: 1.5rem;
     align-items: center;

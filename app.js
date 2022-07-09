@@ -106,8 +106,8 @@ eraserBtn.addEventListener('click', eraser);
 function colorMode() {
     // Remove the rainbow mode event listener from the grid
     grid.removeEventListener('mousemove', setRandomColor);
-    // Set the pen color to the color picker color
-    penColor = document.querySelector("input#color-picker").value;
+    // Call the setPenToColorPicker()
+    setPenToColorPicker();
 }
 // Add event listener to the color mode button
 colorModeBtn.addEventListener('click', colorMode);
@@ -130,3 +130,11 @@ function rainbowMode() {
 }
 // Add event listener to the rainbow mode button
 rainbowModeBtn.addEventListener('click', rainbowMode);
+
+function setPenToColorPicker() {
+    // Set the pen color to the color picker color
+    penColor = document.querySelector("input#color-picker").value;
+    penMode = 'color';
+}
+// Add event listener to the color picker
+colorPicker.addEventListener('change', setPenToColorPicker);
